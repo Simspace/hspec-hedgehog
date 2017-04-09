@@ -7,14 +7,12 @@ module Test.Hspec.Hedgehog
 
 import           Control.Monad.IO.Class (MonadIO, liftIO)
 
-import           Data.Coerce (coerce)
-
 import           Hedgehog (Property, Size (..), Test)
 import qualified Hedgehog
 import qualified Hedgehog.Internal.Property as HP
 import qualified Hedgehog.Internal.Runner as HR
 import qualified Hedgehog.Internal.Seed as HS
-import           Hedgehog.Internal.Report (Report (..), Status (..), TestCount (..))
+import           Hedgehog.Internal.Report (Report (..), Status (..))
 
 import           Test.Hspec.Core.Spec (Arg, Example (..), Spec)
 import           Test.Hspec.Core.Spec (ActionWith, Params, ProgressCallback, Result)
@@ -47,4 +45,4 @@ evalHedgehogExample p params _ reportProgress = do
 
     reporter :: Report -> (Int, Int)
     reporter r =
-      (coerce (reportTests r), Hspec.paramsSmallCheckDepth params)
+      (fromIntegral (reportTests r), Hspec.paramsSmallCheckDepth params)
