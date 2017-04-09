@@ -33,7 +33,7 @@ evalHedgehogExample :: MonadIO m
                     => Property -> Params -> (ActionWith (Arg Property) -> IO ()) -> ProgressCallback -> m Result
 evalHedgehogExample p params _ reportProgress = do
   seed <- HS.random
-  rep <- liftIO $ HR.checkReport HP.defaultConfig size seed (HP.propertyTest p) (reportProgress . reporter)
+  rep <- liftIO $ HR.checkReportNoCatch HP.defaultConfig size seed (HP.propertyTest p) (reportProgress . reporter)
   case reportStatus rep of
     Waiting -> error "waiting"
     Running -> error "running"
