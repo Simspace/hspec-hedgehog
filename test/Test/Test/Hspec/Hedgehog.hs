@@ -1,4 +1,3 @@
-{-# LANGUAGE TypeFamilies #-}
 module Test.Test.Hspec.Hedgehog
   ( hedgehogSpec
   ) where

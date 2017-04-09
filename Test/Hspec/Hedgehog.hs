@@ -1,6 +1,3 @@
-{-# LANGUAGE CPP #-}
-{-# LANGUAGE FlexibleContexts #-}
-{-# LANGUAGE FlexibleInstances #-}
 {-# LANGUAGE TypeFamilies #-}
 {-# OPTIONS_GHC -fno-warn-orphans #-}
 module Test.Hspec.Hedgehog
@@ -8,9 +5,6 @@ module Test.Hspec.Hedgehog
   , evalHedgehogExample
   ) where
 
-#if !MIN_VERSION_base(4,8,0)
-import           Control.Applicative
-#endif
 import           Control.Monad.IO.Class (MonadIO, liftIO)
 
 import           Data.Coerce (coerce)
