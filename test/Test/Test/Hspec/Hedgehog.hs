@@ -31,7 +31,7 @@ hedgehogSpec = do
         evaluateExample (error "foobar") `shouldThrow` errorCall "foobar"
   where
     evaluateExample :: Property -> IO Hspec.Result
-    evaluateExample e = hedgehogEvalExample e undefined undefined undefined
+    evaluateExample e = evalHedgehogExample e Hspec.defaultParams (const $ pure ()) (const $ pure ())
 
     notTwo :: Property
     notTwo = Hedgehog.property $ do
