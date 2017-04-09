@@ -2,7 +2,7 @@
 -- documentation, see http://haskell.org/cabal/users-guide/
 
 name:                hspec-hedgehog
-version:             0.1.0.0
+version:             0.0.0.1
 synopsis:            Hedgehog support for the Hspec testing framework
 -- description:
 homepage:            https://github.com/erikd/hspec-hedgehog/
@@ -34,6 +34,8 @@ test-suite test
 
   main-is:            test.hs
   hs-source-dirs:     test
+
+  other-modules:      Test.Test.Hspec.Hedgehog
 
   build-depends:       base                          >= 4.8         && < 5.0
                      , hedgehog
